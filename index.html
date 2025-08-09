@@ -474,6 +474,7 @@
         /* お客様の声 */
         .testimonials {
             background: white;
+            position: relative;
         }
         
         .testimonial-grid {
@@ -528,6 +529,30 @@
             align-items: center;
             justify-content: center;
             color: white;
+            font-weight: bold;
+        }
+        
+        .family-character {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .family-character img {
+            width: 300px;
+            height: auto;
+            margin: 0 auto;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .family-character p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: var(--color-gold);
             font-weight: bold;
         }
         
@@ -941,6 +966,10 @@
                 right: 10px;
             }
             
+            .family-character img {
+                width: 200px;
+            }
+            
             .section-title {
                 font-size: 28px;
             }
@@ -1262,6 +1291,12 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- クレヨンしんちゃん家族のキャラクター -->
+            <div class="family-character">
+                <img src="19_family.png" alt="家族みんなで応援" />
+                <p>家族みんなが笑顔になれるリフォームを！</p>
+            </div>
         </div>
     </section>
 
@@ -1350,7 +1385,7 @@
     <section class="ceo-profile">
         <div class="ceo-profile-container">
             <div class="ceo-profile-image">
-                <img src="19_family.png" alt="代表 乾佑企と家族" />
+                <img src="family_inui.png" alt="代表 乾佑企と家族" />
             </div>
             <div class="ceo-profile-content">
                 <h2 class="ceo-profile-title">代表プロフィール</h2>
