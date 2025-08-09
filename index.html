@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-black: #383635;
+            --color-gold: #A19276;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +23,7 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--color-black);
             overflow-x: hidden;
         }
         
@@ -29,10 +34,10 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 30px rgba(56, 54, 53, 0.15);
             z-index: 1000;
             padding: 15px 0;
-            border-bottom: 3px solid #FFD700;
+            border-bottom: 3px solid var(--color-gold);
         }
         
         .header-container {
@@ -44,53 +49,64 @@
             align-items: center;
         }
         
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .century21-logo {
+            height: 40px;
+            width: auto;
+        }
+        
         .company-logo {
             font-size: 22px;
             font-weight: bold;
-            color: #FF6B35;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: var(--color-gold);
+            text-shadow: 0 2px 4px rgba(56, 54, 53, 0.1);
         }
         
         .location-badge {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, var(--color-black) 0%, #4a4846 100%);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(56, 54, 53, 0.2);
             margin-left: 15px;
         }
         
         .phone-number {
             font-size: 24px;
             font-weight: bold;
-            color: #FF6B35;
+            color: var(--color-gold);
             text-decoration: none;
         }
         
         .header-button {
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
             color: white;
             padding: 12px 30px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 15px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(161, 146, 118, 0.3);
             transition: all 0.3s ease;
         }
         
         .header-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 20px rgba(161, 146, 118, 0.4);
         }
         
         /* ファーストビュー */
         .hero {
             margin-top: 70px;
             min-height: 100vh;
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #c4b59b 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -120,11 +136,26 @@
             color: white;
         }
         
+        .hero-mascot {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: auto;
+            opacity: 0.9;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
         .hero h1 {
             font-size: clamp(32px, 5vw, 52px);
             line-height: 1.3;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(56, 54, 53, 0.2);
             font-weight: 900;
         }
         
@@ -163,13 +194,13 @@
         .cta-button {
             display: inline-block;
             background: white;
-            color: #FF6B35;
+            color: var(--color-gold);
             padding: 20px 50px;
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(56, 54, 53, 0.2);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
@@ -182,7 +213,7 @@
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(56, 54, 53, 0.3);
         }
         
         /* セクション共通 */
@@ -194,12 +225,12 @@
             text-align: center;
             font-size: 36px;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--color-black);
             font-weight: 900;
         }
         
         .section-title span {
-            color: #FF6B35;
+            color: var(--color-gold);
         }
         
         .section-subtitle {
@@ -215,6 +246,47 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* センチュリー21セクション */
+        .century21-section {
+            background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .century21-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .century21-logo-large {
+            width: 250px;
+            height: auto;
+        }
+        
+        .century21-text {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
+        }
+        
+        .century21-text h3 {
+            font-size: 28px;
+            color: var(--color-gold);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .century21-text p {
+            color: var(--color-black);
+            line-height: 1.8;
+            font-size: 16px;
         }
         
         /* ビフォーアフターセクション */
@@ -233,17 +305,17 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(56, 54, 53, 0.1);
             transition: transform 0.3s ease;
         }
         
         .ba-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(56, 54, 53, 0.15);
         }
         
         .ba-header {
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
             color: white;
             padding: 20px;
             font-size: 24px;
@@ -270,7 +342,7 @@
         }
         
         .ba-savings strong {
-            color: #FF6B35;
+            color: var(--color-gold);
             font-size: 24px;
         }
         
@@ -302,27 +374,29 @@
             text-align: center;
             padding: 40px 20px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #fff5f2 0%, #ffebe5 100%);
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3ee 100%);
             transition: transform 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(56, 54, 53, 0.1);
+            border: 2px solid transparent;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(56, 54, 53, 0.15);
+            border-color: var(--color-gold);
         }
         
         .feature-icon {
             font-size: 48px;
             margin-bottom: 20px;
-            color: #FF6B35;
+            color: var(--color-gold);
         }
         
         .feature-title {
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #FF6B35;
+            color: var(--color-gold);
         }
         
         .feature-description {
@@ -333,6 +407,7 @@
         /* 生活シーンセクション */
         .lifestyle {
             background: #f8f9fa;
+            position: relative;
         }
         
         .lifestyle-content {
@@ -350,7 +425,7 @@
         .lifestyle-title {
             font-size: 32px;
             font-weight: bold;
-            color: #333;
+            color: var(--color-black);
             margin-bottom: 20px;
         }
         
@@ -370,7 +445,7 @@
             padding: 10px 0;
             padding-left: 30px;
             position: relative;
-            color: #333;
+            color: var(--color-black);
             line-height: 1.8;
         }
         
@@ -386,13 +461,23 @@
         .lifestyle-image {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(56, 54, 53, 0.1);
+            position: relative;
         }
         
         .lifestyle-image img {
             width: 100%;
             height: 400px;
             object-fit: cover;
+        }
+        
+        .family-mascot {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 200px;
+            height: auto;
+            z-index: 10;
         }
         
         /* お客様の声 */
@@ -412,12 +497,19 @@
             padding: 30px;
             border-radius: 20px;
             position: relative;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(56, 54, 53, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-5px);
         }
         
         .testimonial-quote {
             font-size: 60px;
-            color: rgba(255, 107, 53, 0.2);
+            color: rgba(161, 146, 118, 0.2);
             line-height: 1;
             margin-bottom: 20px;
         }
@@ -425,7 +517,7 @@
         .testimonial-text {
             margin-bottom: 20px;
             line-height: 1.8;
-            color: #333;
+            color: var(--color-black);
         }
         
         .testimonial-author {
@@ -440,7 +532,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -467,21 +559,21 @@
             text-align: center;
             position: relative;
             transition: transform 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(56, 54, 53, 0.1);
             border: 2px solid #eee;
         }
         
         .pricing-card.featured {
             transform: scale(1.05);
-            border-color: #FF6B35;
-            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
+            border-color: var(--color-gold);
+            box-shadow: 0 10px 40px rgba(161, 146, 118, 0.2);
         }
         
         .pricing-badge {
             position: absolute;
             top: -15px;
             right: 20px;
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
             color: white;
             padding: 5px 20px;
             border-radius: 20px;
@@ -492,13 +584,13 @@
         .pricing-title {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--color-black);
         }
         
         .pricing-price {
             font-size: 36px;
             font-weight: bold;
-            color: #FF6B35;
+            color: var(--color-gold);
             margin-bottom: 30px;
         }
         
@@ -523,6 +615,23 @@
             font-weight: bold;
         }
         
+        .pricing-button {
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .pricing-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(161, 146, 118, 0.3);
+        }
+        
         /* 代表プロフィールセクション */
         .ceo-profile {
             background: #f8f8f8;
@@ -543,7 +652,7 @@
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(56, 54, 53, 0.15);
             border: 5px solid white;
         }
         
@@ -561,7 +670,7 @@
         .ceo-profile-title {
             font-size: 32px;
             font-weight: bold;
-            color: #BEAF87;
+            color: var(--color-gold);
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 15px;
@@ -574,13 +683,13 @@
             left: 0;
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, #BEAF87 0%, transparent 100%);
+            background: linear-gradient(90deg, var(--color-gold) 0%, transparent 100%);
         }
         
         .ceo-profile-text {
             font-size: 16px;
             line-height: 1.8;
-            color: #333;
+            color: var(--color-black);
             margin-bottom: 25px;
         }
         
@@ -593,12 +702,12 @@
             padding: 15px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(56, 54, 53, 0.05);
         }
         
         /* 最終CTA */
         .final-cta {
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #c4b59b 100%);
             color: white;
             text-align: center;
             position: relative;
@@ -652,7 +761,7 @@
         
         .contact-button {
             background: white;
-            color: #FF6B35;
+            color: var(--color-gold);
             padding: 25px 35px;
             border-radius: 15px;
             text-decoration: none;
@@ -663,13 +772,13 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(56, 54, 53, 0.2);
             min-width: 200px;
         }
         
         .contact-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(56, 54, 53, 0.3);
         }
         
         .line-button {
@@ -693,7 +802,7 @@
         
         /* フッター */
         footer {
-            background: #333;
+            background: var(--color-black);
             color: white;
             padding: 40px 20px 20px;
         }
@@ -707,7 +816,7 @@
         }
         
         .footer-section h3 {
-            color: #FF6B35;
+            color: var(--color-gold);
             margin-bottom: 15px;
             font-size: 20px;
         }
@@ -728,7 +837,13 @@
         }
         
         .footer-section a:hover {
-            color: #FF6B35;
+            color: var(--color-gold);
+        }
+        
+        .footer-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
         }
         
         .footer-bottom {
@@ -754,20 +869,20 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--color-gold) 0%, #b8a98c 100%);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             font-size: 24px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(56, 54, 53, 0.3);
             transition: all 0.3s ease;
         }
         
         .floating-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(56, 54, 53, 0.4);
         }
         
         .floating-button.phone {
@@ -785,6 +900,14 @@
                 gap: 10px;
             }
             
+            .logo-section {
+                flex-direction: column;
+            }
+            
+            .century21-logo {
+                height: 30px;
+            }
+            
             .ba-grid {
                 grid-template-columns: 1fr;
             }
@@ -792,6 +915,15 @@
             .lifestyle-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            
+            .century21-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .century21-text {
+                text-align: center;
             }
             
             .pricing-card.featured {
@@ -805,6 +937,18 @@
             
             .hero h1 {
                 font-size: 28px;
+            }
+            
+            .hero-mascot {
+                width: 100px;
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .family-mascot {
+                width: 120px;
+                bottom: -20px;
+                right: -20px;
             }
             
             .section-title {
@@ -831,9 +975,12 @@
     <!-- ヘッダー -->
     <header>
         <div class="header-container">
-            <div class="flex items-center">
-                <div class="company-logo">センチュリー21ホームマート</div>
-                <div class="location-badge">奈良県北葛城郡広陵町</div>
+            <div class="logo-section">
+                <img src="century21logo_gold.png" alt="センチュリー21" class="century21-logo">
+                <div>
+                    <div class="company-logo">ホームマート</div>
+                    <div class="location-badge">奈良県北葛城郡広陵町</div>
+                </div>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="tel:0120438639" class="phone-number">
@@ -868,6 +1015,23 @@
                 今すぐ無料見積もりを申し込む
                 <div class="text-sm mt-2">※60秒で完了・しつこい営業は一切ありません</div>
             </a>
+            <img src="01_shinchan.png" alt="しんちゃん" class="hero-mascot">
+        </div>
+    </section>
+
+    <!-- センチュリー21紹介セクション -->
+    <section class="century21-section">
+        <div class="century21-content">
+            <img src="century21logo_gold_top.png" alt="センチュリー21" class="century21-logo-large">
+            <div class="century21-text">
+                <h3>全国店舗数No.1の信頼と実績</h3>
+                <p>
+                    センチュリー21は、全国で最も多くの店舗を展開する不動産ネットワークです。<br>
+                    ホームマートは、その信頼のブランド力と地域密着のきめ細かなサービスを融合。<br>
+                    大手の安心感と、地元企業ならではの迅速な対応で、<br>
+                    奈良県の皆様に最高品質のリフォームサービスをお届けします。
+                </p>
+            </div>
         </div>
     </section>
 
@@ -947,7 +1111,7 @@
                     <div class="feature-icon"><i class="fas fa-award"></i></div>
                     <div class="feature-title">センチュリー21の信頼</div>
                     <p class="feature-description">
-                        全国店舗数No.1のセンチュリー21リフォーム施工店。<br>
+                        全国店舗数No.1のセンチュリー21加盟店。<br>
                         大手の安心感と地域密着のきめ細かさ。<br>
                         奈良県で唯一の充実サービス展開で<br>
                         他社にはない安心をお届け。
@@ -1025,6 +1189,7 @@
                 </div>
                 <div class="lifestyle-image">
                     <img src="happy-family-kitchen.jpg" alt="新しいキッチンで料理を楽しむ家族の様子" />
+                    <img src="19_family.png" alt="家族キャラクター" class="family-mascot">
                 </div>
             </div>
         </div>
@@ -1111,36 +1276,6 @@
         </div>
     </section>
 
-    <!-- 施工実績セクション -->
-    <section class="section" style="background: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">プロの技術で<span>確かな仕上がり</span></h2>
-            <p class="section-subtitle">経験豊富な職人が、丁寧に施工いたします</p>
-            
-            <div class="lifestyle-content">
-                <div class="lifestyle-text">
-                    <h3 class="lifestyle-title">品質へのこだわりと<br>プロフェッショナルな技術</h3>
-                    <p class="lifestyle-description">
-                        センチュリー21ホームマートでは、
-                        長年の経験を積んだ熟練職人が責任を持って施工いたします。
-                        細部まで手を抜かない丁寧な仕事で、
-                        お客様のご要望を確実に形にします。
-                    </p>
-                    <ul class="lifestyle-points">
-                        <li>国家資格を持つ専門職人による施工</li>
-                        <li>最新の工法と確実な技術で高品質を実現</li>
-                        <li>現場の整理整頓を徹底し、近隣への配慮も万全</li>
-                        <li>施工中の安全管理を最優先に作業を実施</li>
-                        <li>完成後の丁寧な清掃とご説明まで一貫対応</li>
-                    </ul>
-                </div>
-                <div class="lifestyle-image">
-                    <img src="professional-renovation.jpg" alt="プロ職人による丁寧な施工の様子" />
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 価格セクション -->
     <section class="section pricing">
         <div class="container">
@@ -1158,7 +1293,7 @@
                         <li>奈良県内現地調査・見積もり無料</li>
                         <li>部分的なリフォームに最適</li>
                     </ul>
-                    <a href="https://form.run/@century21-reform" class="cta-button bg-orange-500 text-white w-full">見積もりを依頼</a>
+                    <a href="https://form.run/@century21-reform" class="pricing-button">見積もりを依頼</a>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -1173,7 +1308,7 @@
                         <li>分割払い対応（月々1.8万円〜）</li>
                         <li>奈良県限定特別価格</li>
                     </ul>
-                    <a href="https://form.run/@century21-reform" class="cta-button bg-orange-500 text-white w-full">見積もりを依頼</a>
+                    <a href="https://form.run/@century21-reform" class="pricing-button">見積もりを依頼</a>
                 </div>
                 
                 <div class="pricing-card">
@@ -1186,28 +1321,7 @@
                         <li>インテリアコーディネート付き</li>
                         <li>最上級の設備で贅沢な空間を実現</li>
                     </ul>
-                    <a href="https://form.run/@century21-reform" class="cta-button bg-orange-500 text-white w-full">見積もりを依頼</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 代表プロフィールセクション -->
-    <section class="ceo-profile">
-        <div class="ceo-profile-container">
-            <div class="ceo-profile-image">
-                <img src="family_inui.png" alt="代表 乾佑企と家族" />
-            </div>
-            <div class="ceo-profile-content">
-                <h2 class="ceo-profile-title">代表プロフィール</h2>
-                <p class="ceo-profile-text">
-                    20歳で不動産会社を創業し、現在32歳。地域に根ざし12年間、住まいと暮らしに向き合ってきました。<br><br>
-                    私にも大切な家族がいます。<br>
-                    家族と過ごす時間をより快適に、笑顔あふれるものにするための想いを、お客様のリフォームにも込めています。<br><br>
-                    私が大工・内装・設備（LIXIL等のメーカー施工士）・ガス・塗装の有資格者で、妻が水道・電気工事士の国家資格保持者で、確かな技術力で、これからも暮らしの質を高めるお手伝いをしてまいります。
-                </p>
-                <div class="ceo-profile-catchphrase">
-                    「家族の笑顔をつくるリフォームを、あなたへ。」
+                    <a href="https://form.run/@century21-reform" class="pricing-button">見積もりを依頼</a>
                 </div>
             </div>
         </div>
@@ -1254,6 +1368,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
+                <img src="century21logo_gold.png" alt="センチュリー21" class="footer-logo">
                 <h3>会社情報</h3>
                 <p><strong>センチュリー21ホームマート</strong></p>
                 <p>〒635-0821<br>奈良県北葛城郡広陵町笠287-1</p>
@@ -1291,7 +1406,7 @@
                         <i class="fab fa-line"></i> LINEで相談
                     </a>
                 </p>
-                <p style="margin-top: 15px;">全国店舗数No.1のセンチュリー21リフォーム施工店</p>
+                <p style="margin-top: 15px;">全国店舗数No.1のセンチュリー21加盟店</p>
             </div>
         </div>
         <div class="footer-bottom">
